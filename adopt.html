@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paws & Claws Rescue | Adopt a Pet</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Custom Brand Colors Extension -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              amber: '#F59E0B',
+              emerald: '#10B981',
+              slate: '#1E293B',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-50 text-slate-800 flex flex-col min-h-screen">
+
+  <!-- ================= NAVBAR ================= -->
+  <nav class="bg-white border-b border-gray-200 sticky top-0 z-40 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center space-x-2 text-brand-emerald font-bold text-xl tracking-tight">
+          <i class="fa-solid fa-paw text-2xl"></i>
+          <span>Paws & Claws</span>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="text-gray-600 hover:text-brand-emerald transition">Home</a>
+          <a href="adopt.html" class="text-brand-emerald font-semibold transition">Adopt</a>
+          <a href="donate.html" class="text-gray-600 hover:text-brand-emerald transition">Donate & Volunteer</a>
+          <a href="contact.html" class="text-gray-600 hover:text-brand-emerald transition">Contact</a>
+          <a href="adopt.html" class="bg-brand-emerald hover:bg-emerald-600 text-white px-4 py-2 rounded-lg font-medium shadow transition">
+            Adopt Now
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-btn" class="text-gray-600 hover:text-brand-slate focus:outline-none" aria-label="Toggle Navigation">
+            <i class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100 bg-white px-4 pt-3 pb-4 space-y-2 shadow-lg">
+      <a href="index.html" class="block text-gray-600 hover:text-brand-emerald py-1">Home</a>
+      <a href="adopt.html" class="block font-semibold text-brand-emerald py-1">Adopt</a>
+      <a href="donate.html" class="block text-gray-600 hover:text-brand-emerald py-1">Donate & Volunteer</a>
+      <a href="contact.html" class="block text-gray-600 hover:text-brand-emerald py-1">Contact</a>
+    </div>
+  </nav>
+
+  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
+    <!-- Header -->
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-brand-slate tracking-tight">Meet Our Available Pets</h1>
+      <p class="text-gray-600 mt-2 text-base">Find a loyal companion looking for their forever family. Every animal is vaccinated, vet-checked, and microchipped.</p>
+      
+      <!-- Category Filter Buttons -->
+      <div class="flex justify-center gap-3 mt-6">
+        <button class="filter-btn active px-5 py-2 rounded-full font-medium text-sm transition bg-brand-emerald text-white shadow-sm" data-filter="all">
+          All Pets
+        </button>
+        <button class="filter-btn px-5 py-2 rounded-full font-medium text-sm transition bg-white text-gray-700 border border-gray-200 hover:bg-gray-100" data-filter="dog">
+          <i class="fa-solid fa-dog mr-1"></i> Dogs
+        </button>
+        <button class="filter-btn px-5 py-2 rounded-full font-medium text-sm transition bg-white text-gray-700 border border-gray-200 hover:bg-gray-100" data-filter="cat">
+          <i class="fa-solid fa-cat mr-1"></i> Cats
+        </button>
+      </div>
+    </div>
+
+    <!-- Pet Grid -->
+    <div id="pets-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Pet 1: Dog -->
+      <div class="pet-card bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden flex flex-col hover:shadow-md transition" data-species="dog">
+        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=600&q=80" alt="Buddy" class="h-60 w-full object-cover" />
+        <div class="p-6 flex-grow flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-1">
+              <h3 class="text-xl font-bold text-brand-slate">Buddy</h3>
+              <span class="bg-emerald-100 text-brand-emerald text-xs font-semibold px-2.5 py-1 rounded-full">Available</span>
+            </div>
+            <p class="text-xs text-gray-500 mb-3">Golden Retriever Mix • Male • 2 Years</p>
+            <p class="text-gray-600 text-sm mb-4">Loves playing fetch, high-energy, and house-trained. Great with young families.</p>
+            <div class="flex flex-wrap gap-1 mb-4">
+              <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">Vaccinated</span>
+              <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">Leash-Trained</span>
+            </div>
+          </div>
+          <button onclick="openModal('Buddy')" class="w-full bg-brand-emerald hover:bg-emerald-600 text-white font-medium py-2 rounded-lg transition">
+            Adopt Buddy
+          </button>
+        </div>
+      </div>
+
+      <!-- Pet 2: Cat -->
+      <div class="pet-card bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden flex flex-col hover:shadow-md transition" data-species="cat">
+        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=600&q=80" alt="Luna" class="h-60 w-full object-cover" />
+        <div class="p-6 flex-grow flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-1">
+              <h3 class="text-xl font-bold text-brand-slate">Luna</h3>
+              <span class="bg-emerald-100 text-brand-emerald text-xs font-semibold px-2.5 py-1 rounded-full">Available</span>
+            </div>
+            <p class="text-xs text-gray-500 mb-3">Domestic Shorthair • Female • 1 Year</p>
+            <p class="text-gray-600 text-sm mb-4">Gentle, quiet, and enjoys curling up in warm corners. Fully litter-trained.</p>
+            <div class="flex flex-wrap gap-1 mb-4">
+              <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">Spayed</span>
+              <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">Indoor Only</span>
+            </div>
+          </div>
+          <button onclick="openModal('Luna')" class="w-full bg-brand-emerald hover:bg-emerald-600 text-white font-medium py-2 rounded-lg transition">
+            Adopt Luna
+          </button>
+        </div>
+      </div>
+
+      <!-- Pet 3: Dog -->
+      <div class="pet-card bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden flex flex-col hover:shadow-md transition" data-species="dog">
+        <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=600&q=80" alt="Milo" class="h-60 w-full object-cover" />
+        <div class="p-6 flex-grow flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-1">
+              <h3 class="text-xl font-bold text-brand-slate">Milo</h3>
+              <span class="bg-amber-100 text-brand-amber text-xs font-semibold px-2.5 py-1 rounded-full">Pending</span>
+            </div>
+            <p class="text-xs text-gray-500 mb-3">French Bulldog • Male • 3 Years</p>
+            <p class="text-gray-600 text-sm mb-4">Inquisitive sniffer and very social with other pets. Needs an active owner.</p>
+            <div class="flex flex-wrap gap-1 mb-4">
+              <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">Microchipped</span>
+              <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">Neutered</span>
+            </div>
+          </div>
+          <button onclick="openModal('Milo')" class="w-full bg-gray-200 text-gray-700 hover:bg-gray-300 font-medium py-2 rounded-lg transition">
+            Inquire for Waitlist
+          </button>
+        </div>
+      </div>
+
+      <!-- Pet 4: Cat -->
+      <div class="pet-card bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden flex flex-col hover:shadow-md transition" data-species="cat">
+        <img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=600&q=80" alt="Oliver" class="h-60 w-full object-cover" />
+        <div class="p-6 flex-grow flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-1">
+              <h3 class="text-xl font-bold text-brand-slate">Oliver</h3>
+              <span class="bg-emerald-100 text-brand-emerald text-xs font-semibold px-2.5 py-1 rounded-full">Available</span>
+            </div>
+            <p class="text-xs text-gray-500 mb-3">Tabby • Male • 6 Months</p>
+            <p class="text-gray-600 text-sm mb-4">Curious kitten full of energy and playful purrs. Loves feather toys.</p>
+            <div class="flex flex-wrap gap-1 mb-4">
+              <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">Dewormed</span>
+              <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">First Shots Done</span>
+            </div>
+          </div>
+          <button onclick="openModal('Oliver')" class="w-full bg-brand-emerald hover:bg-emerald-600 text-white font-medium py-2 rounded-lg transition">
+            Adopt Oliver
+          </button>
+        </div>
+      </div>
+
+      <!-- Pet 5: Dog -->
+      <div class="pet-card bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden flex flex-col hover:shadow-md transition" data-species="dog">
+        <img src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?auto=format&fit=crop&w=600&q=80" alt="Bella" class="h-60 w-full object-cover" />
+        <div class="p-6 flex-grow flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-1">
+              <h3 class="text-xl font-bold text-brand-slate">Bella</h3>
+              <span class="bg-emerald-100 text-brand-emerald text-xs font-semibold px-2.5 py-1 rounded-full">Available</span>
+            </div>
+            <p class="text-xs text-gray-500 mb-3">Border Collie Mix • Female • 4 Years</p>
+            <p class="text-gray-600 text-sm mb-4">Smart, attentive, and knows basic hand commands. Perfect hiking partner.</p>
+            <div class="flex flex-wrap gap-1 mb-4">
+              <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">Agility Ready</span>
+              <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">Spayed</span>
+            </div>
+          </div>
+          <button onclick="openModal('Bella')" class="w-full bg-brand-emerald hover:bg-emerald-600 text-white font-medium py-2 rounded-lg transition">
+            Adopt Bella
+          </button>
+        </div>
+      </div>
+
+      <!-- Pet 6: Cat -->
+      <div class="pet-card bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden flex flex-col hover:shadow-md transition" data-species="cat">
+        <img src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&w=600&q=80" alt="Cleo" class="h-60 w-full object-cover" />
+        <div class="p-6 flex-grow flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-1">
+              <h3 class="text-xl font-bold text-brand-slate">Cleo</h3>
+              <span class="bg-emerald-100 text-brand-emerald text-xs font-semibold px-2.5 py-1 rounded-full">Available</span>
+            </div>
+            <p class="text-xs text-gray-500 mb-3">Calico • Female • 2 Years</p>
+            <p class="text-gray-600 text-sm mb-4">Calm demeanor, loves gentle chin scratches, and enjoys resting beside windows.</p>
+            <div class="flex flex-wrap gap-1 mb-4">
+              <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">Vaccinated</span>
+              <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">Litter-Trained</span>
+            </div>
+          </div>
+          <button onclick="openModal('Cleo')" class="w-full bg-brand-emerald hover:bg-emerald-600 text-white font-medium py-2 rounded-lg transition">
+            Adopt Cleo
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ================= ADOPTION MODAL DIALOG ================= -->
+  <div id="adoption-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
+      <!-- Close Button -->
+      <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-lg">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <h3 class="text-xl font-bold text-brand-slate mb-1">Adoption Application</h3>
+      <p class="text-sm text-gray-500 mb-5">You are applying to adopt: <span id="modal-pet-name" class="font-bold text-brand-emerald"></span></p>
+
+      <!-- Modal Form -->
+      <form id="adoption-form" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-gray-700 mb-1">Full Name *</label>
+          <input type="text" id="applicant-name" required class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-emerald" placeholder="e.g. Jane Doe" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-gray-700 mb-1">Email Address *</label>
+          <input type="email" id="applicant-email" required class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-emerald" placeholder="jane@example.com" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-gray-700 mb-1">Phone Number *</label>
+          <input type="tel" id="applicant-phone" required class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-emerald" placeholder="+1 (555) 000-0000" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-gray-700 mb-1">Living Situation</label>
+          <select class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-emerald">
+            <option>House with fenced yard</option>
+            <option>Apartment / Condo</option>
+            <option>Farm / Rural property</option>
+          </select>
+        </div>
+
+        <button type="submit" class="w-full bg-brand-emerald hover:bg-emerald-600 text-white font-medium py-2.5 rounded-lg transition mt-2 shadow">
+          Submit Application
+        </button>
+      </form>
+
+      <!-- Success Notification Box -->
+      <div id="modal-success" class="hidden text-center py-6">
+        <div class="w-12 h-12 bg-emerald-100 text-brand-emerald rounded-full flex items-center justify-center mx-auto text-xl mb-3">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        <h4 class="text-lg font-bold text-brand-slate">Application Received!</h4>
+        <p class="text-sm text-gray-600 mt-1">Our shelter coordinator will reach out to schedule a meet-and-greet.</p>
+        <button onclick="closeModal()" class="mt-4 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-medium px-4 py-2 rounded-lg">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-brand-slate text-gray-400 py-10 border-t border-slate-700">
+    <div class="max-w-7xl mx-auto px-4 text-center text-xs text-gray-500">
+      &copy; 2026 Paws & Claws Rescue Foundation. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- ================= LOGIC & INTERACTION ================= -->
+  <script>
+    // 1. Mobile Menu Toggle
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // 2. Category Filtering (All / Dogs / Cats)
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const petCards = document.querySelectorAll('.pet-card');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Toggle active button styles
+        filterButtons.forEach(b => {
+          b.classList.remove('bg-brand-emerald', 'text-white', 'shadow-sm');
+          b.classList.add('bg-white', 'text-gray-700', 'border', 'border-gray-200');
+        });
+        btn.classList.add('bg-brand-emerald', 'text-white', 'shadow-sm');
+        btn.classList.remove('bg-white', 'text-gray-700', 'border', 'border-gray-200');
+
+        const filterValue = btn.getAttribute('data-filter');
+
+        petCards.forEach(card => {
+          if (filterValue === 'all' || card.getAttribute('data-species') === filterValue) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // 3. Adoption Modal Interactions
+    const modal = document.getElementById('adoption-modal');
+    const modalPetName = document.getElementById('modal-pet-name');
+    const adoptionForm = document.getElementById('adoption-form');
+    const modalSuccess = document.getElementById('modal-success');
+
+    function openModal(petName) {
+      modalPetName.textContent = petName;
+      adoptionForm.classList.remove('hidden');
+      modalSuccess.classList.add('hidden');
+      modal.classList.remove('hidden');
+    }
+
+    function closeModal() {
+      modal.classList.add('hidden');
+      adoptionForm.reset();
+    }
+
+    adoptionForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // Form submission simulation
+      adoptionForm.classList.add('hidden');
+      modalSuccess.classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>

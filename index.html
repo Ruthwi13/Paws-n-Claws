@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paws & Claws Rescue | Home</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Custom Brand Colors Extension -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              amber: '#F59E0B',
+              emerald: '#10B981',
+              slate: '#1E293B',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-50 text-slate-800 flex flex-col min-h-screen">
+
+  <!-- ================= NAVBAR ================= -->
+  <nav class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center space-x-2 text-brand-emerald font-bold text-xl tracking-tight">
+          <i class="fa-solid fa-paw text-2xl"></i>
+          <span>Paws & Claws</span>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="text-brand-emerald font-semibold hover:text-emerald-700 transition">Home</a>
+          <a href="adopt.html" class="text-gray-600 hover:text-brand-emerald transition">Adopt</a>
+          <a href="donate.html" class="text-gray-600 hover:text-brand-emerald transition">Donate & Volunteer</a>
+          <a href="contact.html" class="text-gray-600 hover:text-brand-emerald transition">Contact</a>
+          <a href="adopt.html" class="bg-brand-emerald hover:bg-emerald-600 text-white px-4 py-2 rounded-lg font-medium shadow transition">
+            Adopt Now
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-btn" class="text-gray-600 hover:text-brand-slate focus:outline-none" aria-label="Toggle Navigation">
+            <i class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100 bg-white px-4 pt-3 pb-4 space-y-2 shadow-lg">
+      <a href="index.html" class="block font-semibold text-brand-emerald py-1">Home</a>
+      <a href="adopt.html" class="block text-gray-600 hover:text-brand-emerald py-1">Adopt</a>
+      <a href="donate.html" class="block text-gray-600 hover:text-brand-emerald py-1">Donate & Volunteer</a>
+      <a href="contact.html" class="block text-gray-600 hover:text-brand-emerald py-1">Contact</a>
+      <a href="adopt.html" class="block w-full text-center bg-brand-emerald text-white px-4 py-2 rounded-lg font-medium mt-2">
+        Adopt Now
+      </a>
+    </div>
+  </nav>
+
+  <main class="flex-grow">
+    <!-- ================= HERO SECTION ================= -->
+    <section class="relative bg-brand-slate text-white py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <!-- Background Image Overlay -->
+      <img 
+        src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?auto=format&fit=crop&w=1600&q=80" 
+        alt="Shelter pets background" 
+        class="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-overlay"
+      />
+      <div class="relative max-w-4xl mx-auto text-center">
+        <span class="inline-block bg-emerald-500/20 text-emerald-300 text-xs sm:text-sm font-semibold uppercase tracking-wider px-3 py-1 rounded-full mb-4">
+          Non-Profit Animal Rescue Shelter
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight mb-6">
+          Every Paw Deserves a Safe, Loving Forever Home
+        </h1>
+        <p class="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto mb-8">
+          We rescue, rehabilitate, and re-home abandoned and vulnerable dogs and cats. Join us in making a difference today.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a href="adopt.html" class="bg-brand-emerald hover:bg-emerald-600 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition text-center">
+            <i class="fa-solid fa-heart mr-2"></i> Meet Our Pets
+          </a>
+          <a href="donate.html" class="bg-white/10 hover:bg-white/20 text-white border border-white/30 font-semibold px-6 py-3 rounded-lg transition text-center">
+            <i class="fa-solid fa-hand-holding-dollar mr-2"></i> Support Our Cause
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= IMPACT STATS ================= -->
+    <section class="max-w-6xl mx-auto px-4 -mt-10 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100 text-center">
+          <div class="w-12 h-12 mx-auto bg-amber-100 text-brand-amber rounded-full flex items-center justify-center text-xl mb-3">
+            <i class="fa-solid fa-dog"></i>
+          </div>
+          <p class="text-3xl font-extrabold text-brand-slate">1,250+</p>
+          <p class="text-sm font-medium text-gray-500 mt-1">Animals Rescued & Sheltered</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100 text-center">
+          <div class="w-12 h-12 mx-auto bg-emerald-100 text-brand-emerald rounded-full flex items-center justify-center text-xl mb-3">
+            <i class="fa-solid fa-shield-heart"></i>
+          </div>
+          <p class="text-3xl font-extrabold text-brand-slate">98%</p>
+          <p class="text-sm font-medium text-gray-500 mt-1">Successful Adoption Rate</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100 text-center">
+          <div class="w-12 h-12 mx-auto bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xl mb-3">
+            <i class="fa-solid fa-people-carry-box"></i>
+          </div>
+          <p class="text-3xl font-extrabold text-brand-slate">100%</p>
+          <p class="text-sm font-medium text-gray-500 mt-1">Non-Profit & Community Run</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FEATURED PETS ================= -->
+    <section class="max-w-6xl mx-auto px-4 py-16">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl sm:text-3xl font-bold text-brand-slate">Urgent Adoptions</h2>
+        <p class="text-gray-600 max-w-xl mx-auto mt-2">These furry friends have been in our care the longest and are waiting for their companion.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Card 1: Dog -->
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden flex flex-col hover:shadow-md transition">
+          <img 
+            src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=600&q=80" 
+            alt="Golden Labrador named Buddy" 
+            class="h-56 w-full object-cover"
+          />
+          <div class="p-6 flex-grow flex flex-col justify-between">
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <h3 class="text-xl font-bold text-brand-slate">Buddy</h3>
+                <span class="bg-emerald-100 text-brand-emerald text-xs font-semibold px-2 py-1 rounded">Available</span>
+              </div>
+              <p class="text-sm text-gray-500 mb-3">Golden Retriever Mix • 2 Years Old</p>
+              <p class="text-gray-600 text-sm">Gentle, energetic, and loves kids. Fully vaccinated and basic training complete.</p>
+            </div>
+            <a href="adopt.html" class="mt-6 block text-center bg-brand-emerald hover:bg-emerald-600 text-white font-medium py-2 rounded-lg transition">
+              Meet Buddy
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2: Cat -->
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden flex flex-col hover:shadow-md transition">
+          <img 
+            src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=600&q=80" 
+            alt="Ginger Cat named Luna" 
+            class="h-56 w-full object-cover"
+          />
+          <div class="p-6 flex-grow flex flex-col justify-between">
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <h3 class="text-xl font-bold text-brand-slate">Luna</h3>
+                <span class="bg-emerald-100 text-brand-emerald text-xs font-semibold px-2 py-1 rounded">Available</span>
+              </div>
+              <p class="text-sm text-gray-500 mb-3">Domestic Short Hair • 1 Year Old</p>
+              <p class="text-gray-600 text-sm">Affectionate lap-cat who enjoys sunbeams and quiet afternoons. Litter-trained.</p>
+            </div>
+            <a href="adopt.html" class="mt-6 block text-center bg-brand-emerald hover:bg-emerald-600 text-white font-medium py-2 rounded-lg transition">
+              Meet Luna
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3: Dog -->
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden flex flex-col hover:shadow-md transition">
+          <img 
+            src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=600&q=80" 
+            alt="Beagle named Milo" 
+            class="h-56 w-full object-cover"
+          />
+          <div class="p-6 flex-grow flex flex-col justify-between">
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <h3 class="text-xl font-bold text-brand-slate">Milo</h3>
+                <span class="bg-amber-100 text-brand-amber text-xs font-semibold px-2 py-1 rounded">Pending</span>
+              </div>
+              <p class="text-sm text-gray-500 mb-3">Beagle • 3 Years Old</p>
+              <p class="text-gray-600 text-sm">Inquisitive explorer who gets along with other dogs. Microchipped and neutered.</p>
+            </div>
+            <a href="adopt.html" class="mt-6 block text-center bg-gray-200 text-gray-700 hover:bg-gray-300 font-medium py-2 rounded-lg transition">
+              View Profile
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-10">
+        <a href="adopt.html" class="inline-flex items-center text-brand-emerald font-semibold hover:text-emerald-700">
+          Browse all available pets <i class="fa-solid fa-arrow-right ml-2"></i>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-brand-slate text-gray-400 py-12 border-t border-slate-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <div class="flex items-center space-x-2 text-white font-bold text-xl mb-3">
+          <i class="fa-solid fa-paw text-brand-emerald"></i>
+          <span>Paws & Claws</span>
+        </div>
+        <p class="text-sm text-gray-400">Dedicated to giving neglected, surrendered, and stray animals a dignified second chance at life.</p>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-3">Quick Links</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="adopt.html" class="hover:text-white transition">Adopt a Pet</a></li>
+          <li><a href="donate.html" class="hover:text-white transition">Volunteer Opportunities</a></li>
+          <li><a href="donate.html" class="hover:text-white transition">Make a Donation</a></li>
+          <li><a href="contact.html" class="hover:text-white transition">Shelter Hours & Location</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-3">Contact Details</h4>
+        <p class="text-sm text-gray-400">190, Commercial Street, Chennai</p>
+        <p class="text-sm text-gray-400 mt-1">Helpline: +91 94861 11433</p>
+        <p class="text-sm text-gray-400 mt-1">Email: contact@pawsandclaws.org</p>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 mt-8 pt-6 border-t border-slate-800 text-xs text-center text-gray-500">
+      &copy; 2026 Paws & Claws Rescue Foundation. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- ================= LIGHTWEIGHT SCRIPT ================= -->
+  <script>
+    // Mobile navigation drawer toggle
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
